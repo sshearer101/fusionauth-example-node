@@ -3,8 +3,8 @@ const router = express.Router();
 const {FusionAuthClient} = require('@fusionauth/typescript-client');
 
 // tag::clientIdSecret[]
-const clientId = '85a03867-dccf-4882-adde-1a79aeec50df';
-const clientSecret = 'NkIKQ2MGx3uMBv3uGl9TyYud0MYfdBWCOk-cPQTjiAw';
+const clientId = 'f959a1a6-145c-44da-bd38-6d348253e32f';
+const clientSecret = 'oX0jst1FHePZpgyTZxNexJR7iH1I-qEci8L_oXmtZN4';
 // end::clientIdSecret[]
 
 const fusionAuthURL = 'http://localhost:9011';
@@ -17,10 +17,13 @@ router.get('/logout', function (req, res, next) {
   res.redirect(302, '/');
 });
 
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const stateValue = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   req.session.stateValue = stateValue;
+
 
   //generate the pkce challenge/verifier dict
   const pkce_pair = pkceChallenge();
